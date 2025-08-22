@@ -43,7 +43,6 @@ const router = new VueRouter({
     { path: '/summary', name: 'TrainSummary', component: TrainSummary },
     { path: '/circle',  name: 'StudyCircle',  component: StudyCircle },
     { path: '/news',    name: 'News',         component: News },
-    { path: '*',        name: 'NotFound',     component: NotFound },
 
     { path: '/news/article/:id', name: 'NewsArticle', component: NewsArticle },
     { path: '/news/notice/:id',  name: 'NoticeDetail', component: NoticeDetail },
@@ -65,10 +64,9 @@ const router = new VueRouter({
     { path: 'notice',   name: 'UserNotice',   component: UserNotice }
     ]
   },
+    { path: '*',        name: 'NotFound',     component: NotFound },
     // …404 等
-  
-  
-  
+
   ],
   scrollBehavior() { return { x: 0, y: 0 }; }
 });
