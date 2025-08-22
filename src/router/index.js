@@ -7,6 +7,7 @@ const Home         = () => import('@/views/Home.vue');
 const Theory       = () => import('@/views/Theory.vue');
 const TheoryModule = () => import('@/views/TheoryModule.vue');
 const ResourceView = () => import('@/views/ResourceView.vue');
+const Login        = () => import('@/views/auth/Login.vue');
 
 const ExamCenter   = () => import('@/views/ExamCenter.vue');   // ← 详情+开始考试
 const ExamTaking   = () => import('@/views/ExamTaking.vue');   // ← 作答页
@@ -44,8 +45,10 @@ const router = new VueRouter({
     { path: '/circle',  name: 'StudyCircle',  component: StudyCircle },
     { path: '/news',    name: 'News',         component: News },
 
-    { path: '/news/article/:id', name: 'NewsArticle', component: NewsArticle },
-    { path: '/news/notice/:id',  name: 'NoticeDetail', component: NoticeDetail },
+      { path: '/news/article/:id', name: 'NewsArticle', component: NewsArticle },
+      { path: '/news/notice/:id',  name: 'NoticeDetail', component: NoticeDetail },
+
+      { path: '/login', name: 'Login', component: Login },
     
     {
   path: '/user',
@@ -64,7 +67,7 @@ const router = new VueRouter({
     { path: 'notice',   name: 'UserNotice',   component: UserNotice }
     ]
   },
-    { path: '*',        name: 'NotFound',     component: NotFound },
+      { path: '*',        name: 'NotFound',     component: NotFound },
     // …404 等
 
   ],
