@@ -1,0 +1,35 @@
+:root {
+  --primary: #3eaf7c;
+  --text: #222;
+  --muted: #666;
+  --bg: #fff;
+  --border: #eee;
+}
+
+/* 通用容器：水平居中，左右留白，最大宽度受控 */
+.container {
+  width: 100%;
+  max-width: 1100px;   /* 控制内容最大宽度 */
+  margin: 0 auto;      /* 居中 */
+  padding: 0 16px;     /* 左右留白 */
+}
+
+/* 影子卡片 */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+
+/* 简易网格 */
+.grid {
+  display: grid;
+  grid-gap: 16px;
+}
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
