@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '@/store';
 
 Vue.use(VueRouter);
 
@@ -33,7 +34,8 @@ const UserNotice     = () => import('@/views/user/UserNotice.vue');
 const router = new VueRouter({
   mode: 'hash',
   routes: [
-    { path: '/', name: 'Home', component: Home },
+    { path: '/', redirect: '/login' },
+    { path: '/home', name: 'Home', component: Home },
     { path: '/theory', name: 'Theory', component: Theory },
     { path: '/theory/module/:id', name: 'TheoryModule', component: TheoryModule },
     { path: '/theory/module/:id/resource/:rid', name: 'ResourceView', component: ResourceView },
@@ -72,6 +74,14 @@ const router = new VueRouter({
 
   ],
   scrollBehavior() { return { x: 0, y: 0 }; }
+});
+
+router.beforeEach((to, from, next) => {
+  if (!store.state.auth.token && to.path !== '/login') {
+    next('/login');
+  } else {
+    next();
+  }
 });
 
 export default router;
