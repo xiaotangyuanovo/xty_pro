@@ -44,50 +44,39 @@ export default {
 .logo { width:32px; height:32px; margin-right:10px; }
 .title { font-weight:600; }
 
-/* 让导航成为flex，便于把“个人中心”顶到最右 */
+/* 导航使用 flex 布局，将“个人中心”按钮推到最右 */
 .nav {
   display: flex;
   align-items: center;
   width: 100%;
   gap: 0; /* 由 a 的 margin 控制间距 */
 }
-.nav a { margin-left: 16px; padding: 6px 10px; border-radius: 6px; text-decoration: none; color: inherit; }
+.nav a {
+  margin-left: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+}
 .nav a:hover { background:#f6f6f6; }
 .nav a.active { color: var(--primary); font-weight: 600; }
 
-/* 个人中心按钮样式（在最右侧） */
+/* 个人中心按钮：常态描边，悬停/选中时实心 */
 .user-btn {
-  margin-left: auto;                 /* 关键：把它推到最右边 */
+  margin-left: auto;                 /* 关键：靠最右 */
   border: 1px solid var(--primary);
   color: var(--primary);
+  border-radius: 6px;
+  padding: 6px 12px;
 }
 .user-btn:hover,
 .user-btn.active {
   background: var(--primary);
   color: #fff;
 }
-
-/* 让导航可把“个人中心”推到最右侧（若已有可忽略） */
-.nav { display:flex; align-items:center; width:100%; }
-.nav a { text-decoration:none; }
-
-/* 个人中心按钮：常态是描边，悬停/选中是实心，始终可见 */
-.user-btn {
-  margin-left:auto;                 /* 关键：靠最右 */
-  border:1px solid var(--primary);
-  color: var(--primary);
-  border-radius:6px;
-  padding:6px 12px;
-}
-.user-btn:hover {
-  background: var(--primary);
-  color:#fff;
-}
-/* 修复选中后文字被覆盖成同色导致“看不见” */
 .user-btn.active {
-  background: var(--primary);
   border-color: var(--primary);
-  color:#fff !important;            /* 覆盖 .nav a.active 的颜色 */
+  color: #fff !important;            /* 确保选中时文字可见 */
 }
 
 </style>
