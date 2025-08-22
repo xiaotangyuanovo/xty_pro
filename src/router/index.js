@@ -42,6 +42,7 @@ const router = new VueRouter({
 
     { path: '/summary', name: 'TrainSummary', component: TrainSummary },
     { path: '/circle',  name: 'StudyCircle',  component: StudyCircle },
+    { path: '/courses', name: 'Courses',      component: () => import('@/views/Courses.vue') },
     { path: '/news',    name: 'News',         component: News },
     { path: '*',        name: 'NotFound',     component: NotFound },
 
